@@ -1,0 +1,13 @@
+.jumbotron {
+    color: black;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 5px solid white;
+}
+body {
+    background-image: url('../images/trainstation.jpg')
+}
+
+.card-header {
+    background-image: url('../images/header.png')
+}
