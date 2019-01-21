@@ -9,6 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Staatliches" rel="stylesheet">
     <link rel='stylesheet' type='text/css' href='assets/css/style.css'>
     <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
 
@@ -21,7 +22,7 @@
     <div class='container'>
         <div class='jumbotron'>
             <h1>Train Schedulure</h1>
-            <h3>Sometimes that light at the end of the tunnel is a train</h3>
+            <h4>"Sometimes that light at the end of the tunnel is a train."</h4>
         </div>
     </div>
 
@@ -41,23 +42,23 @@
                                 <th scope="col">Next Arrival</th>
                                 <th scope="col">Minutes Away</th>
                             </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Trenton Express</td>
-                                    <td>Trenton</td>
-                                    <td>25</td>
-                                    <td>05:35 PM</td>
-                                    <td>10</td>  
-                                </tr>
-                                <tr>
-                                    <td>Oregon Trail</td>
-                                    <td>Salem, Oregon</td>
-                                    <td>3600</td>
-                                    <td>01:39 PM</td>
-                                    <td>1154</td> 
-                                </tr>
-                            </tbody>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Trenton Express</td>
+                                <td>Trenton</td>
+                                <td>25</td>
+                                <td>05:35 PM</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>Oregon Trail</td>
+                                <td>Salem, Oregon</td>
+                                <td>3600</td>
+                                <td>01:39 PM</td>
+                                <td>1154</td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -65,51 +66,51 @@
     </div>
 
     <div class='row'>
-            <div class='container' style="margin-top: 20px;">
-                <div class="card">
-                    <h5 class="card-header">Add Train</h5>
-                    <div class="card-body">
-                        <form role='form'>
-        
-                            <div class='form-group'>
-                                <label for='search'>Train Name</label>
-                                <input type='text' class='form-control' id='trainNameForm'>
-                            </div>
-                            <div class='form-group'>
-                                <label for='search'>Destination</label>
-                                <input type='text' class='form-control' id='destinationForm'>
-                            </div>
-                          
-        
-                            <div class='form-group'>
-                                <label for='startYear'>First Train Time (HH:mm - military time)</label>
-                                <input type='text' class='form-control' id='firstTrainTimeForm'>
-                            </div>
-        
-                            <div class='form-group'>
-                                <label for='endYear'>Frequency (min)</label>
-                                <input type='text' class='form-control' id='frequencyForm'>
-                            </div>
-        
-                            <button type='submit' id='submitBtn' class='btn btn-default'>Submit</button>
+        <div class='container' style="margin-top: 20px;">
+            <div class="card">
+                <h5 class="card-header">Add Train</h5>
+                <div class="card-body">
+                    <form role='form'>
+
+                        <div class='form-group'>
+                            <label for='search'>Train Name</label>
+                            <input type='text' class='form-control' id='trainNameForm'>
+                        </div>
+                        <div class='form-group'>
+                            <label for='search'>Destination</label>
+                            <input type='text' class='form-control' id='destinationForm'>
+                        </div>
+
+
+                        <div class='form-group'>
+                            <label for='startYear'>First Train Time (HH:mm - military time)</label>
+                            <input type='text' class='form-control' id='firstTrainTimeForm'>
+                        </div>
+
+                        <div class='form-group'>
+                            <label for='endYear'>Frequency (min)</label>
+                            <input type='text' class='form-control' id='frequencyForm'>
+                        </div>
+
+                        <button type='submit' id='submitBtn' class='btn btn-default'>Submit</button>
+                </div>
             </div>
-        </div>
 
 
 
 
 
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-        crossorigin="anonymous"></script>
+            <!-- Optional JavaScript -->
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+                crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+                crossorigin="anonymous"></script>
 
-    <script type="text/javascript" src="assets/javascript/app.js"></script>
+            <script type="text/javascript" src="assets/javascript/app.js"></script>
 
 </body>
 
