@@ -16,14 +16,35 @@ database.ref().on('child_added', function(childSnapshot){
     var childTrainName =    (childSnapshot.val().trainName);
     var childDestination =  (childSnapshot.val().destination);
     var childFrequency =    (childSnapshot.val().frequency);
+    var childTrainTime =    (childSnapshot.val().firstTrainTime);
+
+    var militaryTime = moment(childTrainTime, "HH:mm");
+    
+
+    var currentTime = moment();
+    console.log('Current time ' + moment(currentTime).format('hh:mm'));
+
+    var timeDifference = moment().diff(moment(militaryTime), 'minutes');
+    console.log('The difference in time between first train and current time ' + timeDifference + ' minutes')
+
+    var timeApart = timeDifference % childFrequency;
+    
+    var minutesTilNextTrain = childFrequency - timeApart;
+    console.log('Minutes until next train ' + minutesTilNextTrain);
+
+    var timeTilNextTrain = moment().add(minutesTilNextTrain, "minutes");
+
+    var formattedNextTime = moment(timeTilNextTrain).format('hh:mm a')
+    
+
     
     var createNewRow = $('<tr>');
 
     createNewRow.append('<td>' + childTrainName + '</td>')
     createNewRow.append('<td>' + childDestination + '</td>')
-    // createNewRow.append('<td>' + 'placeholder' + '</td>')
-    // createNewRow.append('<td>' + 'placeholder' + '</td>')
     createNewRow.append('<td>' + childFrequency + '</td>')
+    createNewRow.append('<td>' + formattedNextTime + '</td>')
+    createNewRow.append('<td>' + minutesTilNextTrain + '</td>')
 
     $('.table').append(createNewRow)
 })
