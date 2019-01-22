@@ -20,7 +20,6 @@ database.ref().on('child_added', function(childSnapshot){
 
     var militaryTime = moment(childTrainTime, "HH:mm");
     
-
     var currentTime = moment();
     console.log('Current time ' + moment(currentTime).format('hh:mm'));
 
