@@ -18,24 +18,32 @@ database.ref().on('child_added', function(childSnapshot){
     var childFrequency =    (childSnapshot.val().frequency);
     var childTrainTime =    (childSnapshot.val().firstTrainTime);
 
+    // making sure its formatted to military time
     var militaryTime = moment(childTrainTime, "HH:mm");
     
+    // current time
     var currentTime = moment();
     console.log('Current time ' + moment(currentTime).format('hh:mm'));
-
+    
+    // difference between first train and current time
     var timeDifference = moment().diff(moment(militaryTime), 'minutes');
     console.log('The difference in time between first train and current time ' + timeDifference + ' minutes')
-
-    var timeApart = timeDifference % childFrequency;
     
+    // use of modulus to find time apart between trains
+    var timeApart = timeDifference % childFrequency;
+    console.log('Time apart ' + timeApart)
+
+    // this finds minutes until next train
     var minutesTilNextTrain = childFrequency - timeApart;
     console.log('Minutes until next train ' + minutesTilNextTrain);
 
-    var timeTilNextTrain = moment().add(minutesTilNextTrain, "minutes");
 
+    // adding the minutes until next train to current time
+    var timeTilNextTrain = moment().add(minutesTilNextTrain, "minutes");
+    
+    // formatting minutes until next train into normal time instead of minutes
     var formattedNextTime = moment(timeTilNextTrain).format('hh:mm a')
     
-
     
     var createNewRow = $('<tr>');
 
@@ -47,13 +55,6 @@ database.ref().on('child_added', function(childSnapshot){
 
     $('.table').append(createNewRow)
 })
-
-
-
-
-
-
-
 
 
 

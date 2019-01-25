@@ -2,22 +2,23 @@
     color: black;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.3);
-    border: 2px solid black;
+    border: 2px solid white;
     font-family: 'Montserrat', sans-serif;
     
 }
 body {
     
-    background-image: url('../images/greenbackground.svg')
+    background-image: url('../images/Ohhappiness.jpg');
+    /* background-image: url('../images/aw94XgP.png'); */
    
 }
 
 .card-header {
-    background-image: url('../images/aw94XgP.png')
+    background-image: url('../images/SummerDog.jpg');
 }
 
 .card {
-    border: 2px solid black;
+    border: 2px solid white;
     background-color: rgba(255, 255, 255, 0.3);
     font-family: 'Montserrat', sans-serif;
 }
@@ -26,5 +27,6 @@ body {
     margin-top: 20px;
     border: 2px solid black;
     font-family: 'Montserrat', sans-serif;
+    background-color: white;
 }
 
