@@ -1,4 +1,6 @@
 # train_scheduler
+Deployed Page: https://rtothaoss.github.io/train_scheduler/
+
 
 This is a train scheduler app that is linked to a firebase database that will keep track of all the data.
 
