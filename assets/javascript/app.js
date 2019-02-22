@@ -5,30 +5,30 @@ var config = {
     projectId: "train-scheduler-bbe1b",
     storageBucket: "train-scheduler-bbe1b.appspot.com",
     messagingSenderId: "967245042012"
-  };
-  firebase.initializeApp(config);
+};
+firebase.initializeApp(config);
 
-  var database = firebase.database();
+var database = firebase.database();
 
 
-database.ref().on('child_added', function(childSnapshot){
+database.ref().on('child_added', function (childSnapshot) {
 
-    var childTrainName =    (childSnapshot.val().trainName);
-    var childDestination =  (childSnapshot.val().destination);
-    var childFrequency =    (childSnapshot.val().frequency);
-    var childTrainTime =    (childSnapshot.val().firstTrainTime);
+    var childTrainName = (childSnapshot.val().trainName);
+    var childDestination = (childSnapshot.val().destination);
+    var childFrequency = (childSnapshot.val().frequency);
+    var childTrainTime = (childSnapshot.val().firstTrainTime);
 
     // making sure its formatted to military time
     var militaryTime = moment(childTrainTime, "HH:mm");
-    
+
     // current time
     var currentTime = moment();
     console.log('Current time ' + moment(currentTime).format('hh:mm'));
-    
+
     // difference between first train and current time
     var timeDifference = moment().diff(moment(militaryTime), 'minutes');
     console.log('The difference in time between first train and current time ' + timeDifference + ' minutes')
-    
+
     // use of modulus to find time apart between trains
     var timeApart = timeDifference % childFrequency;
     console.log('Time apart ' + timeApart)
@@ -40,35 +40,59 @@ database.ref().on('child_added', function(childSnapshot){
 
     // adding the minutes until next train to current time
     var timeTilNextTrain = moment().add(minutesTilNextTrain, "minutes");
-    
+
     // formatting minutes until next train into normal time instead of minutes
     var formattedNextTime = moment(timeTilNextTrain).format('hh:mm a')
-    
-    
-    var createNewRow = $('<tr>');
 
-    createNewRow.append('<td>' + childTrainName + '</td>')
-    createNewRow.append('<td>' + childDestination + '</td>')
-    createNewRow.append('<td>' + childFrequency + '</td>')
-    createNewRow.append('<td>' + formattedNextTime + '</td>')
-    createNewRow.append('<td>' + minutesTilNextTrain + '</td>')
+
+    var createNewRow = $('<tr>');
+    // var deleteButton = $('<button>' + 'delete' + '</button>')
+    // var radioButton = $('<input type="radio" name="trains"/>').addClass('#train-clicked');
+
+    createNewRow.append('<td>' + childTrainName + '</td>');
+    createNewRow.append('<td>' + childDestination + '</td>');
+    createNewRow.append('<td>' + childFrequency + '</td>');
+    createNewRow.append('<td>' + formattedNextTime + '</td>');
+    createNewRow.append('<td>' + minutesTilNextTrain + '</td>');
+    // deleteButton.attr('id', 'delete-button')
+
 
     $('.table').append(createNewRow)
+    // createNewRow.append(deleteButton)
+    // createNewRow.prepend(radioButton)
+
+
+    // function deleteTrain() {
+    //     var dataKey = $("#train-clicked").attr("data-key");
+    //     var ref = database.ref("trains-scheduler-bbe1b/" + dataKey)
+    //     ref.once('value', function (snapshot) {
+    //         if (snapshot === null) {
+    //             console.log("does not exist")
+    //         } else {
+    //             snapshot.ref.remove();
+    //             console.log(snapshot)
+    //         }
+
+    //     })
+    // }
+
+    // $('#delete-button').on('click', function () {
+    //     deleteTrain();
+    // })
+
 })
 
 
-
-
-$('#submitBtn').on('click', function(){
+$('#submitBtn').on('click', function () {
     event.preventDefault();
-    
+
     // var createNewRow = $('<tr>');
 
     var trainName = $('#trainNameForm').val();
     var destination = $('#destinationForm').val();
     var frequency = $('#frequencyForm').val();
     var firstTrainTime = $('#firstTrainTimeForm').val();
-    
+
 
     // createNewRow.append('<td>' + trainName + '</td>')
     // createNewRow.append('<td>' + destination + '</td>')
@@ -87,3 +111,4 @@ $('#submitBtn').on('click', function(){
 
 
 })
+
